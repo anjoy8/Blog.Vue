@@ -1,0 +1,79 @@
+.content {
+    float: left;
+}
+.content-list.root {
+    float: left;
+    width: 260px;
+    margin: 10px;
+}
+
+.list-t {
+    float: left;
+    width: 100%;
+    height: 210px;
+    text-align: center;
+    border-right: 2px solid #a4daf4;
+}
+
+    .list-t img {
+        width: 90%;
+        height: 100%;
+    }
+
+.content-list .list-b .text2 {
+    border-top: 1px dashed #ff9900;
+}
+
+span.see {
+    display: none;
+    float: right;
+    margin-right: 40px;
+    color: #ff9900;
+    cursor: pointer;
+}
+
+.list-b {
+    float: left;
+    margin: 10px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid #fff;
+    border-top: none;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    position: absolute;
+    background: rgba(0,0,0,.4);
+    display: none;
+}
+
+.popupbox {
+    position: absolute;
+    z-index: 99;
+    width: 300px;
+    height: 120px;
+    background: #fff;
+    border: 10px solid #555352;
+    display: none;
+}
+
+    .popupbox .text {
+        margin: 30px;
+    }
+
+.ok {
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.cancel {
+    cursor: pointer;
+}
+
+.btn3 {
+    float: right;
+    cursor: pointer;
+}
