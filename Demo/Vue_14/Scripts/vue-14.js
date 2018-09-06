@@ -15,7 +15,7 @@ var obj = {
         $(".content-title").html(this.data.books);
         $(".content-price").html(this.data.price);
     },
-    bind: function () {
+    bind() {
         var that = this;
         $(".content .content-list ").hover(function () {
             $(this).find(".see").show();
@@ -32,13 +32,25 @@ var obj = {
             $(".bg,.popupbox").hide();
         });
 
-        $(".ok").click(function () {
-            var bookItem = that.data.bookObj;
+        //$(".ok").click(function () {
+        //    var bookItem = that.data.bookObj;
+        //    var _parice = $(bookItem).data("price");
+        //    var _book = $(bookItem).data("book");
+        //    that.data.books += _book + ",";
+        //    that.data.price += parseInt(_parice);
+        //    that.show();
+        //});
+
+
+        $(".ok").click(() => {
+            var bookItem = this.data.bookObj;
             var _parice = $(bookItem).data("price");
             var _book = $(bookItem).data("book");
-            that.data.books += _book + ",";
-            that.data.price += parseInt(_parice);
-            that.show();
+            this.data.books += _book + ",";
+            this.data.price += parseInt(_parice);
+            this.show();
+            $(".bg,.popupbox").hide();
+
         });
     },
     popup: function () {

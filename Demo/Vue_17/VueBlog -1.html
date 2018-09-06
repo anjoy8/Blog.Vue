@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+
+    <title>个人博客 Vue.js</title>
+    <!--引用 样式文件 -->
+    <link rel="stylesheet" href="rexo.css" />
+    <!--引用vue.js在线文件，安装-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="description">
+                <div style="background-image: url(https://pic.cnblogs.com/avatar/1468246/20180817230353.png); width: 128px; height: 128px; background-size: cover; border-radius: 50%; margin: 0 auto;">
+                </div>
+                <p class="name" v-text="author"></p>
+                <p class="desc">Software Engineer.Currently working in Microsoft co-operation.</p>
+            </div>
+            <nav>
+                <ul class="nav">
+
+                    <li class="nav-item">
+                        <a href="https://www.cnblogs.com/laozhang-is-phi/">博客园</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/timeline">简书</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/music">阿里云栖</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/rss.xml">Git</a>
+                    </li>
+                    <li class="nav-item" v-show="isShow">
+                        <a href="/rss.xml">CSDN</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <h2 class="hr">
+                <span>About Me</span>
+            </h2>
+            <p>My name is <span v-html="author"></span>. An amateur programmer who writes code every day and watches movies every day.</p>
+            <h2 class="hr">
+                <span>featured</span>
+            </h2>
+            <ul class="post-list non-style-list">
+
+                <li v-for='item in list' class="post-list-item">
+                    <a :href="'https://www.cnblogs.com/laozhang-is-phi/p/'+ item.id +'.html'">{{item.name}}</a>
+                    <span class="post-list-date">({{item.date}})</span>
+                </li>
+            </ul>
+            <div>
+                <div v-if="list.length > 20 ">
+                    MOST
+                </div>
+                <div v-else-if="list.length > 6 ">
+                    MORE
+                </div>
+                <div v-else>
+                    ALL
+                </div>
+            </div>
+
+            <h2 class="hr">
+                <span>Skills</span>
+            </h2>
+            <ul class="skill-list non-style-list">
+
+                <li v-for='(item, key) in list3' class="post-list-item">{{item.name}}</li>
+
+            </ul>
+
+
+
+            <h2 class="hr">
+                <span>Contact</span>
+            </h2>
+            <ul class="contact-list non-style-list">
+
+                <li>
+                    <b class="twitter">TWITTER</b>: <a href="#">@laozhang</a>
+                </li>
+
+                <li>
+                    <b class="weibo">微博</b>: <a href="#">@laozhang</a>
+                </li>
+
+                <li>
+                    <b class="zhihu">知乎</b>: <a href="#" v-html="authorHtml"></a>
+                </li>
+
+                <li>
+                    <b class="github">GITHUB</b>: <a href="https://github.com/anjoy8">anjoy8</a>
+                </li>
+
+                <li>
+                    <b class="email">EMAIL</b>: <a href="mailto:laozhang@azlinli.com">randypriv at azlinli</a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div id="footer">
+            <p>2018 <a href="#">LZ's Blog</a> - Hosted by <a href="#" style="font-weight: bold">Coding Pages</a></p>
+            <p>
+                <a href="#">京ICP备00000000号</a>
+            </p>
+        </div>
+
+        <div class="layout-bg"></div>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',//容器
+            data: {
+                author: "老张的哲学",
+                authorHtml: "<strong>老张的哲学</strong>",
+                list: [
+                    //假数据
+                    { name: " Vue前篇：ES6初体验 & 模块化编程", id: 9585766, date: "2018年9月5日" },
+                    { name: "Vue前篇：JS对象&字面量&this", id: 9580807, date: "2018年9月4日" },
+                    { name: " VUE 计划书 & 我的前后端开发简史", id: 9577805, date: "2018年9月3日" },
+                    { name: " DTOs 对象映射使用，项目部署Windows+Linux完整版", id: 3800, date: "2018年9月1日" },
+                    { name: " 三种跨域方式比较，DTOs(数据传输对象)初探", id: 4200, date: "2018年8月31日" },
+                    { name: "VUE 计划书 & 我的前后端开发简史", id: 3200, date: "2018年9月2日" },
+                    { name: "VUE 实战预告", id: 3200, date: "2018年9月12日" }
+                ],
+                list3: [
+                    //假数据
+                    { name: "Html5" },
+                    { name: "CSS3" },
+                    { name: "JAVASCTIPT" },
+                    { name: "SQL" },
+                    { name: "C#" },
+                    { name: "Wechat小程序" },
+                    { name: "ASP.NET" }
+                ],
+                isShow: false
+            },
+            methods: {
+
+            },
+            //通过计算属性过滤数据
+            computed: {
+                //这个明天讲到
+            }
+        });
+    </script>
+
+    
+</body>
+</html>
