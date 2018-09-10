@@ -3,13 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-
     <title>个人博客 Vue.js</title>
     <!--引用 样式文件 -->
     <link rel="stylesheet" href="rexo.css" />
     <!--引用vue.js在线文件，安装-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <style>
+
         .edit {
             display: block;
             width: 400px;
@@ -22,6 +22,11 @@
             border: 1px solid #ccc;
             outline: 0;
             box-shadow: 0 0 5px #ccc;
+        }
+
+        .deleted {
+            color: red;
+            text-decoration: line-through;
         }
     </style>
 </head>
@@ -36,33 +41,27 @@
             </div>
             <nav>
                 <ul class="nav">
-
                     <li class="nav-item">
                         <a href="https://www.cnblogs.com/laozhang-is-phi/">博客园</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="/timeline">简书</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="/music">阿里云栖</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="/rss.xml">Git</a>
                     </li>
                     <li class="nav-item" v-show="isShow">
                         <a href="/rss.xml">CSDN</a>
                     </li>
-
                 </ul>
             </nav>
         </header>
-
         <!--<input @keydown.enter="addTask" type="text" class="edit" v-model="task.content" placeholder="添加文件">-->
-
         <input @keydown.enter="addArticle" type="text" class="edit" v-model="task.name" placeholder="按回车添加文章">
+
 
         <div class="container">
             <h2 class="hr">
@@ -73,13 +72,12 @@
                 <span>featured</span>
             </h2>
             <ul class="post-list non-style-list">
-
-                <li v-for='item in listSearch' class="post-list-item">
+                <!--注意，不能在已经存在的静态类post-list-item上操作-->
+                <li v-for='item in listSearch' class="post-list-item" :class="{ deleted: item.deleted}">
                     <!--这里用到了 v-bind 指令-->
                     <a v-bind:href="'https://www.cnblogs.com/laozhang-is-phi/p/'+ item.id +'.html'">{{item.name}}</a>
                     <!--还可以这样写-->
                     <!--<a :href="liskUrl">{{item.name}}</a>-->
-                    ss
                     <span class="post-list-date">({{item.date}})</span>
                 </li>
             </ul>
@@ -94,72 +92,71 @@
                     ALL
                 </div>
             </div>
-
             <h2 class="hr">
                 <span>Skills</span>
             </h2>
             <ul class="skill-list non-style-list">
-
                 <li v-for='(item, key) in list3' class="post-list-item">{{item.name}}</li>
-
             </ul>
 
-
-
-            <h2 class="hr">
+            <h2 :class="[hrClass,testClass]">
                 <span>Contact</span>
             </h2>
             <ul class="contact-list non-style-list">
-
                 <li>
                     <b class="twitter">TWITTER</b>: <a href="#">@laozhang</a>
                 </li>
-
                 <li>
                     <b class="weibo">微博</b>: <a href="#">@laozhang</a>
                 </li>
-
                 <li>
                     <b class="zhihu">知乎</b>: <a href="#" v-html="authorHtml"></a>
                 </li>
-
                 <li>
                     <b class="github">GITHUB</b>: <a href="https://github.com/anjoy8">anjoy8</a>
                 </li>
-
                 <li>
                     <b class="email">EMAIL</b>: <a href="mailto:laozhang@azlinli.com">randypriv at azlinli</a>
                 </li>
-
             </ul>
-
         </div>
-        <div id="footer">
-            <p>2018 <a href="#">LZ's Blog</a> - Hosted by <a href="#" style="font-weight: bold">Coding Pages</a></p>
-            <p>
-                <a href="#">京ICP备00000000号</a>
-            </p>
-        </div>
-
+        <footer-vue></footer-vue>
         <div class="layout-bg"></div>
     </div>
+   
     <script type="text/javascript">
-        var vm = new Vue({
+
+        // 定义一个名为 footer-vue 的新组件
+        Vue.component('footer-vue', {
+            template: `
+                    <div id="footer-vue">
+                        <p>2018 <a href="#">LZ's Blog</a> - Hosted by <a href="#" style="font-weight: bold">Coding Pages</a></p>
+                        <p>
+                            <a href="#">京ICP备00000000号</a>
+                        </p>
+                    </div>
+                    `
+        })
+
+
+        let vm = new Vue({
             el: '#app',//容器
             data: {
                 author: "老张的哲学",
                 authorHtml: "<strong>老张的哲学</strong>",
                 liskUrl: "https://www.cnblogs.com/laozhang-is-phi",
+                hrClass: 'hr',
+                testClass:'test',
                 task: {
                     name: '',//内容为空
                     id: 100,
                     date: " Just Now ",
-                    finished: false,//未完成
-                    deleted: false//未删除
+                    finished: false,
+                    deleted: false
                 },
                 list: [
                     //假数据
-                    { name: " Vue前篇：ES6初体验 & 模块化编程", id: 9585766, date: "2018年9月5日", finished: false, deleted: false },
+                    { name: " Vue前篇：ES6初体验 & 模块化编程", id: 9585766, date: "2018年9月5日", finished: false, deleted: true },
                     { name: "Vue前篇：JS对象&字面量&this", id: 9580807, date: "2018年9月4日", finished: false, deleted: false },
                     { name: " VUE 计划书 & 我的前后端开发简史", id: 9577805, date: "2018年9月3日", finished: false, deleted: false },
                     { name: " DTOs 对象映射使用，项目部署Windows+Linux完整版", id: 3800, date: "2018年9月1日", finished: false, deleted: false },
@@ -178,6 +175,64 @@
                     { name: "ASP.NET" }
                 ],
                 isShow: false
+            },
+            beforeCreate: function () {
+                console.group('beforeCreate 创建前状态===============》');
+                console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+                console.log("%c%s", "color:red", "data   : " + this.$data); //undefined
+                console.log("%c%s", "color:red", "author: " + this.author); //undefined
+                debugger
+            },
+            created: function () {
+                console.group('created 创建完毕状态===============》');
+                console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+                console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+                console.log("%c%s", "color:red", "author: " + this.author); //已被初始化
+                debugger
+            },
+            beforeMount: function () {
+                console.group('beforeMount 挂载前状态===============》');
+                console.log("%c%s", "color:red", "el     : " + (this.$el)); //已被初始化
+                console.log(this.$el);
+                console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+                console.log("%c%s", "color:red", "author: " + this.author); //已被初始化
+                debugger
+            },
+            mounted: function () {
+                console.group('mounted 挂载结束状态===============》');
+                console.log("%c%s", "color:red", "el     : " + this.$el); //已被初始化
+                console.log(this.$el);
+                console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+                console.log("%c%s", "color:red", "author: " + this.author); //已被初始化
+                debugger
+            },
+            beforeUpdate: function () {
+                console.group('beforeUpdate 更新前状态===============》');
+                console.log("%c%s", "color:red", "el     : " + this.$el);
+                console.log(this.$el);
+                console.log("%c%s", "color:red", "data   : " + this.$data);
+                console.log("%c%s", "color:red", "author: " + this.author);
+            },
+            updated: function () {
+                console.group('updated 更新完成状态===============》');
+                console.log("%c%s", "color:red", "el     : " + this.$el);
+                console.log(this.$el);
+                console.log("%c%s", "color:red", "data   : " + this.$data);
+                console.log("%c%s", "color:red", "author: " + this.author);
+            },
+            beforeDestroy: function () {
+                console.group('beforeDestroy 销毁前状态===============》');
+                console.log("%c%s", "color:red", "el     : " + this.$el);
+                console.log(this.$el);
+                console.log("%c%s", "color:red", "data   : " + this.$data);
+                console.log("%c%s", "color:red", "author: " + this.author);
+            },
+            destroyed: function () {
+                console.group('destroyed 销毁完成状态===============》');
+                console.log("%c%s", "color:red", "el     : " + this.$el);
+                console.log(this.$el);
+                console.log("%c%s", "color:red", "data   : " + this.$data);
+                console.log("%c%s", "color:red", "author: " + this.author)
             },
             watch: {
                 nameCpt() {
@@ -222,8 +277,17 @@
                 }
             }
         });
-    </script>
 
+        // 定义一个名为 button-counter 的新组件
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+        })
+    </script>
 
 </body>
 </html>

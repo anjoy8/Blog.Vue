@@ -682,16 +682,17 @@ nav .nav .nav-item {
   margin-bottom: .5em;
 }
 
-#footer {
-  margin-top: 2em;
-  padding: 1em;
-  background-color: #fafafa;
-  text-align: center;
-  color: #C0C5CE;
+#footer, #footer-vue {
+    margin-top: 2em;
+    padding: 1em;
+    background-color: #fafafa;
+    text-align: center;
+    color: #C0C5CE;
 }
 
-#footer a {
-  color: #C0C5CE;
+
+#footer a, #footer-vue  a{
+    color: #C0C5CE;
 }
 
 .timeline ul li {
