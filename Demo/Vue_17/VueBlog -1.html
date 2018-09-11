@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,7 +9,6 @@
     <!--引用vue.js在线文件，安装-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <style>
-
         .edit {
             display: block;
             width: 400px;
@@ -62,7 +61,6 @@
         <!--<input @keydown.enter="addTask" type="text" class="edit" v-model="task.content" placeholder="添加文件">-->
         <input @keydown.enter="addArticle" type="text" class="edit" v-model="task.name" placeholder="按回车添加文章">
 
-
         <div class="container">
             <h2 class="hr">
                 <span>About Me</span>
@@ -98,32 +96,15 @@
             <ul class="skill-list non-style-list">
                 <li v-for='(item, key) in list3' class="post-list-item">{{item.name}}</li>
             </ul>
-
             <h2 :class="[hrClass,testClass]">
                 <span>Contact</span>
             </h2>
-            <ul class="contact-list non-style-list">
-                <li>
-                    <b class="twitter">TWITTER</b>: <a href="#">@laozhang</a>
-                </li>
-                <li>
-                    <b class="weibo">微博</b>: <a href="#">@laozhang</a>
-                </li>
-                <li>
-                    <b class="zhihu">知乎</b>: <a href="#" v-html="authorHtml"></a>
-                </li>
-                <li>
-                    <b class="github">GITHUB</b>: <a href="https://github.com/anjoy8">anjoy8</a>
-                </li>
-                <li>
-                    <b class="email">EMAIL</b>: <a href="mailto:laozhang@azlinli.com">randypriv at azlinli</a>
-                </li>
-            </ul>
+            <my-component></my-component>
         </div>
-        <footer-vue></footer-vue>
+        <footer-vue :fooPro="author" @click="doThis(arg1)"></footer-vue>
         <div class="layout-bg"></div>
     </div>
-   
+
     <script type="text/javascript">
 
         // 定义一个名为 footer-vue 的新组件
@@ -132,10 +113,16 @@
                     <div id="footer-vue">
                         <p>2018 <a href="#">LZ's Blog</a> - Hosted by <a href="#" style="font-weight: bold">Coding Pages</a></p>
                         <p>
-                            <a href="#">京ICP备00000000号</a>
+                            <a href="#">京ICP备00000000号{{fooPro}}</a>
                         </p>
                     </div>
-                    `
+                    `,
+            props: ['fooPro'],//这里根据组件的props属性，来被动接受组件传递来的参数
+            data () {
+                return {
+                    message: 'hello world'
+                }
+            }
         })
 
 
@@ -146,7 +133,7 @@
                 authorHtml: "<strong>老张的哲学</strong>",
                 liskUrl: "https://www.cnblogs.com/laozhang-is-phi",
                 hrClass: 'hr',
-                testClass:'test',
+                testClass: 'test',
                 task: {
                     name: '',//内容为空
                     id: 100,
@@ -176,19 +163,47 @@
                 ],
                 isShow: false
             },
+            components: {
+                'my-component': {
+                    template: `
+                        <ul class ="contact-list non-style-list">
+                <li>
+                    <b class ="twitter">TWITTER</b>: <a href="#">@laozhang</a>
+                </li>
+                <li>
+                    <b class ="weibo">微博</b>: <a href="#">@laozhang</a>
+                </li>
+                <li>
+                    <b class ="zhihu">知乎</b>: <a href="#" ></a>
+                </li>
+                <li>
+                    <b class ="github">GITHUB</b>: <a href="https://github.com/anjoy8">anjoy8</a>
+                </li>
+                <li>
+                    <b class ="email">EMAIL</b>: <a href="mailto:laozhang@azlinli.com">randypriv at azlinli</a>
+                </li>
+            </ul>
+                        `,
+                    data () {
+                        return {
+                            message: 'hello world two'
+                        }
+                    }
+                }
+            },
             beforeCreate: function () {
                 console.group('beforeCreate 创建前状态===============》');
                 console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
                 console.log("%c%s", "color:red", "data   : " + this.$data); //undefined
                 console.log("%c%s", "color:red", "author: " + this.author); //undefined
-                debugger
+
             },
             created: function () {
                 console.group('created 创建完毕状态===============》');
                 console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
                 console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
                 console.log("%c%s", "color:red", "author: " + this.author); //已被初始化
-                debugger
+
             },
             beforeMount: function () {
                 console.group('beforeMount 挂载前状态===============》');
@@ -196,7 +211,7 @@
                 console.log(this.$el);
                 console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
                 console.log("%c%s", "color:red", "author: " + this.author); //已被初始化
-                debugger
+
             },
             mounted: function () {
                 console.group('mounted 挂载结束状态===============》');
@@ -204,7 +219,7 @@
                 console.log(this.$el);
                 console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
                 console.log("%c%s", "color:red", "author: " + this.author); //已被初始化
-                debugger
+
             },
             beforeUpdate: function () {
                 console.group('beforeUpdate 更新前状态===============》');
@@ -288,6 +303,5 @@
             template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
         })
     </script>
-
 </body>
 </html>
