@@ -12,6 +12,7 @@ https://github.com/anjoy8/Blog.Core
 node.js、Npm/Cnpm、vue-cli、vue-router、vuex等
 
 下载完成
-执行 npm install
-如何 npm run serve即可
+执行 npm install 安装依赖
+
+执行 npm run serve即可 运行
 
