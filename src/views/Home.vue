@@ -36,7 +36,6 @@
 
           <nav id="page-nav">
             <router-link :to="'/?page=' + (page>1?page-1:1)" class="prev" rel="prev">
-              {{(page<=1? "": "Previous")}}
             </router-link>
             <router-link :to="'/?page=' + (page>=TotalCount? TotalCount: page+1)" class="next" rel="next">
               {{(page>=TotalCount? "": "Next")}}
@@ -82,40 +81,39 @@
 export default {
   name: "home",
   components: {},
-    data() {
-        return {
-            page: 1,
-            TotalCount: 1,
-            isShow: true,
-            list: []
-        }
-    },
-    created() {
-        this.getData()
-    },
-    methods: {
-        getData() {
-            var that = this
-            var urlPage = that.$route.query.page
-            if (urlPage) {
-                that.page = urlPage
-            }
-            this.$api.get('Blog/Get?page=' + that.page, null, r => {
-
-                this.list = r.data
-                this.page = r.page
-                this.TotalCount = r.pageCount
-                this.isShow=false
-            })
-        }
-    },
-    watch: {
-        '$route'(to, from) {
-            this.list=[]
-            this.isShow=true
-            this.page = to.query.page
-            this.getData()
-        }
+  data() {
+    return {
+      page: 1,
+      TotalCount: 1,
+      isShow: true,
+      list: []
+    };
+  },
+  created() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      var that = this;
+      var urlPage = that.$route.query.page;
+      if (urlPage) {
+        that.page = urlPage;
+      }
+      this.$api.get("Blog/Get?page=" + that.page, null, r => {
+        this.list = r.data;
+        this.page = r.page;
+        this.TotalCount = r.pageCount;
+        this.isShow = false;
+      });
     }
+  },
+  watch: {
+    $route(to, from) {
+      this.list = [];
+      this.isShow = true;
+      this.page = to.query.page;
+      this.getData();
+    }
+  }
 };
 </script>
