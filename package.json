@@ -1,5 +1,5 @@
 {
-  "name": "blogvue3",
+  "name": "blogvue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "element-ui": "^2.4.6",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
