@@ -1,6 +1,9 @@
+import store from "../store";
+import router from "../router.js";
+
 // 配置API接口地址
-var root1 = "https://localhost:44352/api";
-var root = "http://123.206.33.109:8012/api";
+var root = "http://localhost:58427/api";
+var root1 = "http://123.206.33.109:8012/api";
 // 引用axios
 var axios = require("axios");
 // 自定义判断元素类型JS
@@ -26,6 +29,39 @@ function filterNull(o) {
   }
   return o;
 }
+
+// http request 拦截器
+axios.interceptors.request.use(
+  config => {
+    if (window.localStorage.Token&&window.localStorage.Token.length>=128) {//store.state.token 获取不到值
+      // 判断是否存在token，如果存在的话，则每个http header都加上token
+      config.headers.Authorization = window.localStorage.Token;
+    }
+    return config;
+  },
+  err => {
+    return Promise.reject(err);
+  }
+);
+// http response 拦截器
+axios.interceptors.response.use(
+  response => {
+    return response;
+  },
+  error => {
+    if (error.response) {
+      switch (error.response.status) {
+        case 401:
+          // 返回 401 清除token信息并跳转到登录页面
+          router.replace({
+            path: "login",
+            query: { redirect: router.currentRoute.fullPath }
+          });
+      }
+    }
+    return Promise.reject(error.response.data); // 返回接口返回的错误信息
+  }
+);
 /*
   接口处理函数
   这个函数每个项目都是不一样的，我现在调整的是适用于
@@ -50,17 +86,7 @@ function apiAxios(method, url, params, success, failure) {
     withCredentials: false
   })
     .then(function(res) {
-      if (res.data.success === true) {
-        if (success) {
-          success(res.data);
-        }
-      } else {
-        if (failure) {
-          failure(res.data);
-        } else {
-          window.alert("error: " + JSON.stringify(res.data));
-        }
-      }
+      success(res.data);
     })
     .catch(function(err) {
       let res = err.response;

@@ -6,12 +6,16 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   // 初始化的数据
   state: {
-    formDatas: null
+    formDatas: null,
+    token: "1"
   },
   // 改变state里面的值得方法
   mutations: {
     getFormData(state, data) {
       state.formDatas = data;
+    },
+    saveToken(state, data) {
+      state.token = data;
     }
   }
 });
