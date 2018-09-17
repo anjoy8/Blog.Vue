@@ -1,6 +1,12 @@
 <template>
     <el-row type="flex" justify="center">
-        <el-form ref="loginForm" :model="user" :rules="rules" status-icon label-width="50px">
+        <el-card v-if="isLogin">
+            欢迎：admins
+            <br>
+            <br>
+            <el-button type="primary" icon="el-icon-upload" @click="loginOut">退出登录</el-button>
+        </el-card>
+        <el-form v-else ref="loginForm" :model="user" :rules="rules" status-icon label-width="50px">
             <el-form-item label="账号" prop="name">
                 <el-input v-model="user.name"></el-input>
             </el-form-item>
@@ -50,16 +56,27 @@ export default {
           return false;
         }
       });
-    }
+    },
+      loginOut(){
+          this.isLogin=false;
+          window.localStorage.setItem("Token","");
+      }
   },
   data() {
     return {
+        isLogin:false,
       user: {},
       rules: {
         name: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
         pass: [{ required: true, message: "密码不能为空", trigger: "blur" }]
       }
     };
-  }
+  },
+    created() {
+        if (window.localStorage.Token&&window.localStorage.Token.length>=128){
+            this.isLogin=true;
+        }
+    }
+
 };
 </script>
