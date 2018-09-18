@@ -25,7 +25,7 @@ export default {
   methods: {
     login: function() {
       let that = this;
-        window.localStorage.setItem("Token","");
+        that.$store.commit("saveToken", "");
         this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.$api.get(
@@ -35,7 +35,6 @@ export default {
               if (r.data.success) {
                 var token = r.data.token;
                 that.$store.commit("saveToken", token);
-                window.localStorage.setItem("Token",token);
                 this.$notify({
                   type: "success",
                   message: "欢迎你," + this.user.name + "!",
@@ -59,7 +58,8 @@ export default {
     },
       loginOut(){
           this.isLogin=false;
-          window.localStorage.setItem("Token","");
+          this.$store.commit("saveToken", "");
+
       }
   },
   data() {

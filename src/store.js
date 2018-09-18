@@ -16,6 +16,7 @@ const store = new Vuex.Store({
     },
     saveToken(state, data) {
       state.token = data;
+      window.localStorage.setItem("Token", data);
     }
   }
 });

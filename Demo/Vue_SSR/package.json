@@ -1,0 +1,47 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "webpack --config ./webpack/webpack.server.js",
+    "client": "webpack --config ./webpack/webpack.client.js"
+  },
+  "author": "laozhang",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.0",
+    "babel": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "express": "^4.15.4",
+    "express-http-proxy": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.6.5",
+    "http-proxy-middleware": "^0.18.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "shell": "^0.5.0",
+    "superagent": "^3.8.3",
+    "vue": "^2.2.2",
+    "vue-meta": "^1.5.0",
+    "vue-router": "^2.2.0",
+    "vue-server-renderer": "^2.2.2",
+    "vue-ssr-webpack-plugin": "^3.0.0",
+    "vuex": "^2.2.1",
+    "vuex-router-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.4",
+    "webpack": "^2.7.0"
+  }
+}
