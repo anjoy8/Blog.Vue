@@ -7,7 +7,7 @@
         <div class="">
             <br>
             <br>
-            <p>数据：{{_formData}}</p>
+            <p>数据：{{_fatherData}}</p>
         </div>
     </div>
 </template>
@@ -30,7 +30,7 @@ export default {
     };
   },
   computed: {
-    _formData() {
+    _fatherData() {
       // 读取store里面的值
       return this.$store.state.formDatas;
     }
