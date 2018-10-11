@@ -1,5 +1,9 @@
 # blogvue
 
+
+老张：这只是 .netCore+Vue 的前端部分，后端API部分，请看我的另一个工程 https://github.com/anjoy8/Blog.Core
+
+
 博客园：https://www.cnblogs.com/laozhang-is-phi/
 
  简书：https://www.jianshu.com/u/94102b59cc2a
