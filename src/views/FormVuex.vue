@@ -9,12 +9,14 @@
             <br>
             <p>数据：{{_fatherData}}</p>
         </div>
+
+        <button @click="getData">test</button>
     </div>
 </template>
 
 <script>
 import child from "../components/dialogVuex.vue";
-
+import axios from "axios";
 export default {
   components: {
     child
@@ -28,6 +30,15 @@ export default {
         age: ""
       }
     };
+  },
+  methods: {
+    getData() {
+      axios({
+        url: "/apb/api/blog"
+      }).then(res => {
+        console.log(res);
+      });
+    }
   },
   computed: {
     _fatherData() {

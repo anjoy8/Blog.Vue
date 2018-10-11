@@ -3,7 +3,8 @@ import router from "../router.js";
 
 // 配置API接口地址
 var root1 = "http://localhost:58427/api";
-var root = "http://123.206.33.109:8081/api/";
+var root2 = "http://123.206.33.109:8081/api/";
+var root = "/apb/api/";
 // 引用axios
 var axios = require("axios");
 // 自定义判断元素类型JS

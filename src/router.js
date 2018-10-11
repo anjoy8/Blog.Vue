@@ -9,7 +9,7 @@ import Login from "./views/Login";
 Vue.use(Router);
 
 const router = new Router({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes: [
     {
@@ -49,7 +49,6 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
-    debugger
     console.log(store.state.token);
 
     // 判断该路由是否需要登录权限

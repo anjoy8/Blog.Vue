@@ -1,0 +1,59 @@
+2018/10/09 16:33:37 [emerg] 21408#11572: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 16:53:48 [emerg] 20772#20660: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 16:55:40 [emerg] 14584#17740: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 16:56:52 [emerg] 18604#20040: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:04:02 [warn] 11492#184: server name "http://127.0.0.1" has suspicious symbols in E:\my-install\nginx-1.14.0/conf/nginx.conf:37
+2018/10/09 17:04:02 [notice] 11492#184: signal process started
+2018/10/09 17:04:02 [emerg] 17076#13980: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:04:27 [notice] 18912#20108: signal process started
+2018/10/09 17:04:27 [emerg] 17076#13980: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:06:44 [notice] 22196#21548: signal process started
+2018/10/09 17:06:44 [emerg] 17076#13980: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:14:20 [notice] 19892#12312: signal process started
+2018/10/09 17:14:20 [emerg] 17076#13980: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:20:22 [notice] 20176#8364: signal process started
+2018/10/09 17:20:22 [emerg] 17076#13980: bind() to 0.0.0.0:6688 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:34:51 [notice] 7088#22000: signal process started
+2018/10/09 17:34:51 [emerg] 17076#13980: bind() to 0.0.0.0:6689 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:36:19 [emerg] 20580#4500: duplicate location "/" in E:\my-install\nginx-1.14.0/conf/nginx.conf:61
+2018/10/09 17:36:30 [notice] 8628#14220: signal process started
+2018/10/09 17:36:30 [emerg] 17076#13980: bind() to 0.0.0.0:6689 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2018/10/09 17:44:00 [notice] 5344#18376: signal process started
+2018/10/09 17:44:07 [error] 22700#22848: *1 CreateFile() "E:\my-install\nginx-1.14.0/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8077", referrer: "http://localhost:8077/"
+2018/10/09 17:46:06 [notice] 23344#22228: signal process started
+2018/10/09 17:46:13 [error] 15936#19776: *13 CreateFile() "E:\my-install\nginx-1.14.0/html/login" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /login?redirect=%2F HTTP/1.1", host: "localhost:8077"
+2018/10/09 17:46:15 [error] 15936#19776: *13 CreateFile() "E:\my-install\nginx-1.14.0/html/login" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /login?redirect=%2F HTTP/1.1", host: "localhost:8077"
+2018/10/09 17:52:25 [error] 15936#19776: *18 CreateFile() "E:\my-install\nginx-1.14.0/html/Login" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /Login HTTP/1.1", host: "localhost:8077"
+2018/10/09 17:59:14 [notice] 11604#12428: signal process started
+2018/10/09 17:59:19 [error] 19888#22256: *30 CreateFile() "E:\my-install\nginx-1.14.0/html/login" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /login?redirect=%2F HTTP/1.1", host: "localhost:8077"
+2018/10/09 18:02:25 [error] 19888#22256: *34 CreateFile() "E:\my-install\nginx-1.14.0/html/login" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /login?redirect=%2F HTTP/1.1", host: "localhost:8077"
+2018/10/09 18:27:42 [notice] 15472#14108: signal process started
+2018/10/09 18:27:49 [error] 12564#21524: *37 CreateFile() "E:\my-install\nginx-1.14.0/html/Vuex" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /Vuex HTTP/1.1", host: "localhost:8077"
+2018/10/09 18:31:16 [error] 12564#21524: *42 CreateFile() "E:\my-install\nginx-1.14.0/html/Vuex" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /Vuex HTTP/1.1", host: "localhost:8077"
+2018/10/09 18:32:25 [notice] 11472#15620: signal process started
+2018/10/09 18:32:48 [notice] 17288#9140: signal process started
+2018/10/09 18:32:55 [error] 15724#14716: *46 CreateFile() "E:\my-install\nginx-1.14.0/html/about" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /about HTTP/1.1", host: "localhost:8077"
+2018/10/09 18:33:01 [error] 15724#14716: *47 CreateFile() "E:\my-install\nginx-1.14.0/html/api/v2/movie/in_theaters" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /api/v2/movie/in_theaters HTTP/1.1", host: "localhost:8077", referrer: "http://localhost:8077/Vuex"
+2018/10/09 18:33:28 [notice] 11160#20180: signal process started
+2018/10/09 18:34:17 [notice] 2268#19536: signal process started
+2018/10/09 18:34:45 [emerg] 19224#12756: host not found in upstream "a1pi.douban.com22" in E:\my-install\nginx-1.14.0/conf/nginx.conf:51
+2018/10/09 18:34:58 [emerg] 11728#14044: host not found in upstream "a1pi.douban.com" in E:\my-install\nginx-1.14.0/conf/nginx.conf:51
+2018/10/09 18:35:08 [notice] 15524#14180: signal process started
+2018/10/09 18:35:23 [notice] 9588#18604: signal process started
+2018/10/09 18:35:51 [notice] 1112#20420: signal process started
+2018/10/09 18:36:09 [notice] 15216#6656: signal process started
+2018/10/09 18:37:40 [notice] 22748#4244: signal process started
+2018/10/09 18:38:12 [notice] 18532#11912: signal process started
+2018/10/09 18:38:12 [error] 18532#11912: CreateFile() "E:\my-install\nginx-1.14.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2018/10/09 18:38:29 [emerg] 18396#18360: CreateFile() "E:/path/to/nginx.conf" failed (3: The system cannot find the path specified)
+2018/10/09 22:20:58 [error] 15724#1412: *7 CreateFile() "C:\Users\zaz123\Desktop\111\dddddddddddddd\nginx-1.14.0/html/Vuex" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /Vuex HTTP/1.1", host: "localhost:8077"
+2018/10/09 22:23:45 [notice] 9844#17308: signal process started
+2018/10/09 22:24:31 [error] 15724#1412: *11 CreateFile() "C:\Users\zaz123\Desktop\111\dddddddddddddd\nginx-1.14.0/html/Vuex" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /Vuex HTTP/1.1", host: "localhost:8077"
+2018/10/09 22:32:47 [notice] 12624#9100: signal process started
+2018/10/09 22:35:20 [error] 15724#1412: *18 CreateFile() "C:\Users\zaz123\Desktop\111\dddddddddddddd\nginx-1.14.0/html/Vuex" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /Vuex HTTP/1.1", host: "localhost:8077"
+2018/10/09 22:35:27 [error] 15724#1412: *18 CreateFile() "C:\Users\zaz123\Desktop\111\dddddddddddddd\nginx-1.14.0/html/login" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /login?redirect=%2F HTTP/1.1", host: "localhost:8077"
+2018/10/09 22:35:35 [error] 15724#1412: *18 CreateFile() "C:\Users\zaz123\Desktop\111\dddddddddddddd\nginx-1.14.0/html/login" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /login?redirect=%2F HTTP/1.1", host: "localhost:8077"
+2018/10/09 22:37:15 [notice] 6388#4876: signal process started
+2018/10/09 22:37:15 [error] 6388#4876: OpenEvent("Global\ngx_reload_7136") failed (2: The system cannot find the file specified)
+2018/10/09 22:50:12 [error] 1128#17764: *2 CreateFile() "C:\Users\zaz123\Desktop\111\dddddddddddddd\nginx-1.14.0/html/Vuex" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /Vuex HTTP/1.1", host: "localhost:8077"
+2018/10/10 10:43:58 [error] 14028#18720: *7 CreateFile() "E:\my-study\VueCore\Blog.Vue\nginx-1.14.0/html/about" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /about HTTP/1.1", host: "localhost:8077"
