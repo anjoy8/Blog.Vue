@@ -9,7 +9,7 @@ import Login from "./views/Login";
 Vue.use(Router);
 
 const router = new Router({
-  mode: "hash",
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
@@ -49,13 +49,12 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
-    console.log(store.state.token);
-
     // 判断该路由是否需要登录权限
-    if (window.localStorage.Token && window.localStorage.Token.length >= 128) {
+    if (window.localStorage.Token) {
       // 通过vuex state获取当前的token是否存在
       next();
     } else {
+        window.localStorage.setItem("Token", "");
       next({
         path: "/login",
         query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由

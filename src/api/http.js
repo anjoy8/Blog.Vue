@@ -34,9 +34,9 @@ function filterNull(o) {
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
-    if (window.localStorage.Token&&window.localStorage.Token.length>=128) {//store.state.token 获取不到值
+    if (window.localStorage.Token) {//store.state.token 获取不到值
       // 判断是否存在token，如果存在的话，则每个http header都加上token
-      config.headers.Authorization = window.localStorage.Token;
+      config.headers.Authorization ="Bearer "+ window.localStorage.Token;
     }
     return config;
   },
@@ -53,9 +53,10 @@ axios.interceptors.response.use(
     if (error.response) {
       switch (error.response.status) {
         case 401:
-          // 返回 401 清除token信息并跳转到登录页面
+            window.localStorage.setItem("Token", "");
+            // 返回 401 清除token信息并跳转到登录页面
           router.replace({
-            path: "login",
+            path: "/login",
             query: { redirect: router.currentRoute.fullPath }
           });
       }
