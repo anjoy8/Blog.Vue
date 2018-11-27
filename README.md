@@ -12,6 +12,10 @@
 node.js、Npm/Cnpm、vue-cli、vue-router、vuex等
 
 
+# 给个星星! ⭐️
+如果你喜欢这个项目或者它帮助你, 请给 Star~（辛苦星咯）
+
+*********************************************************
 ## Project setup
 ```
 npm install
