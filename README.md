@@ -1,4 +1,5 @@
-# blogvue
+
+![Logo](https://github.com/anjoy8/Blog.Vue/blob/master/public/logovue.png)
 
 
 老张：这只是 .netCore+Vue 的前端部分，后端API部分，请看我的另一个工程 https://github.com/anjoy8/Blog.Core
