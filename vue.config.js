@@ -39,7 +39,7 @@ module.exports = {
     // proxy: 'http://123.206.33.109:8081',          // 配置跨域处理,只有一个代理
     proxy: {
       // 配置多个代理
-      "/apb": {
+      "/api": {
         target: "http://123.206.33.109:8081",
         //target: "http://localhost:58427",
         //target: "http://api.douban.com",
