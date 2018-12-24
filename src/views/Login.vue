@@ -74,7 +74,8 @@ export default {
     };
   },
     created() {
-        if (window.localStorage.Token&&window.localStorage.Token.length>=128){
+      var that=this;
+        if (that.$store.state.token&&that.$store.state.token.length>=128){
             this.isLogin=true;
         }
     }

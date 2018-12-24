@@ -7,7 +7,7 @@ const store = new Vuex.Store({
   // 初始化的数据
   state: {
     formDatas: null,
-    token: "1"
+    token: null
   },
   // 改变state里面的值得方法
   mutations: {
