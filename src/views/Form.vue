@@ -1,15 +1,18 @@
 <!-- 父组件 parent.vue -->
 
 <template>
-    <div class="parent">
-        <h3>问卷调查</h3>
-        <child :formData.sync="form"></child>
-        <div class="">
-            <p>姓名：{{form.name}}</p>
-            <p>年龄：{{form.age}}</p>
-            <p>地址：{{form.address}}</p>
-        </div>
+  <div class="parent">
+    <h3>问卷调查</h3>
+    子： <child :formData.sync="form"></child>
+    <hr />
+    <div class="">
+      父：
+      <p>姓名：{{ form.name }}</p>
+      <p>年龄：{{ form.age }}</p>
+      <p>地址：{{ form.address }}</p>
+      <button @click="ageAdd">父Age-1</button>
     </div>
+  </div>
 </template>
 
 <script>
@@ -28,6 +31,11 @@ export default {
         age: ""
       }
     };
+  },
+  methods: {
+    ageAdd() {
+      this.form.age--;
+    }
   }
 };
 </script>
