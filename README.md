@@ -17,20 +17,26 @@ node.js、Npm/Cnpm、vue-cli、vue-router、vuex等
 如果你喜欢这个项目或者它帮助你, 请给 Star~（辛苦星咯）
 
 *********************************************************
-## Project setup
+## 项目下载后，首先安装依赖包
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 安装成功后，运行即可
 ```
 npm run serve
 ```
+然后你就可以直接访问 http://localhost:6688
 
-### Compiles and minifies for production
+```
+```
+
+### 如果要部署，先执行bulid
 ```
 npm run build
 ```
+
+就会看到生成了一个 dist 文件，这个就是SPA生成文件，我们就可以用它来部署了，我会用 Nginx 来代理。
 
 ### Lints and fixes files
 ```
