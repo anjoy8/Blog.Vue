@@ -7,7 +7,6 @@
 
                 <div class="l_main">
                     <article id="" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
-
                         <section class="meta">
                             <h2 class="title">
                                 <a href="javascript:void(0);">

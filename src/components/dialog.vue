@@ -1,17 +1,18 @@
 <!-- 子组件 child.vue -->
 
 <template>
-    <div class="child">
-        <label>
-            姓名：<input :placeholder="form.namePla" type="text" v-model="form.name">
-        </label>
-        <label>
-            年龄：<input type="text" v-model="form.age">
-        </label>
-        <label>
-            地址：<input type="text" v-model="form.address">
-        </label>
-    </div>
+  <div class="child">
+    <label>
+      姓名：<input
+        :placeholder="form.namePla"
+        type="text"
+        v-model="form.name"
+      />
+    </label>
+    <label> 年龄：<input type="number" v-model="form.age" /> </label>
+    <label> 地址：<input type="text" v-model="form.address" /> </label>
+    <button @click="ageAdd">子Age+1</button>
+  </div>
 </template>
 
 <script>
@@ -21,10 +22,15 @@ export default {
       form: {
         name: "",
         namePla: "",
-        age: "",
+        age: "2",
         address: ""
       }
     };
+  },
+  methods: {
+      ageAdd() {
+        this.form.age++;
+    }
   },
   props: {
     // 这个 prop 属性接收父组件传递进来的值
@@ -40,11 +46,5 @@ export default {
       }
     }
   },
-  mounted() {
-    // props 是单向数据流，通过触发 update 事件绑定 formData，
-    // 将 data 里的 form 指向父组件通过 formData 绑定的那个对象
-    // 父组件在绑定 formData 的时候，需要加上 .sync
-    this.$emit("update:formData", this.form);
-  }
 };
 </script>

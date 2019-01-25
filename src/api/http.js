@@ -2,9 +2,9 @@ import store from "../store";
 import router from "../router.js";
 
 // 配置API接口地址
-var root1 = "http://localhost:58427/api";
-var root2 = "http://123.206.33.109:8081/api/";
-var root = "/apb/api/";
+var root1 = "http://localhost:58427/api";//测试本地，用CORS跨域
+var root2 = "http://123.206.33.109:8081/api/";//测试远程，用CORS跨域
+var root = "/api/";//用proxy实现本地代理跨域（生产环境使用的是nginx）
 // 引用axios
 var axios = require("axios");
 // 自定义判断元素类型JS
@@ -32,11 +32,12 @@ function filterNull(o) {
 }
 
 // http request 拦截器
+var storeTemp=store;
 axios.interceptors.request.use(
   config => {
-    if (window.localStorage.Token&&window.localStorage.Token.length>=128) {//store.state.token 获取不到值
+    if (storeTemp.state.token) {
       // 判断是否存在token，如果存在的话，则每个http header都加上token
-      config.headers.Authorization = window.localStorage.Token;
+      config.headers.Authorization ="Bearer "+ storeTemp.state.token;
     }
     return config;
   },
@@ -54,8 +55,9 @@ axios.interceptors.response.use(
       switch (error.response.status) {
         case 401:
           // 返回 401 清除token信息并跳转到登录页面
-          router.replace({
-            path: "login",
+            store.commit("saveToken", "");
+            router.replace({
+            path: "/login",
             query: { redirect: router.currentRoute.fullPath }
           });
       }

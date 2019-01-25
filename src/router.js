@@ -9,16 +9,13 @@ import Login from "./views/Login";
 Vue.use(Router);
 
 const router = new Router({
-  mode: "hash",
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
       path: "/",
       name: "home",
-      component: Home,
-      meta: {
-        requireAuth: true // 添加该字段，表示进入这个路由是需要登录的
-      }
+      component: Home
     },
     {
       path: "/Vuex",
@@ -28,7 +25,10 @@ const router = new Router({
     {
       path: "/Content/:id",
       name: "Content",
-      component: Content
+      component: Content,
+      meta: {
+        requireAuth: true // 添加该字段，表示进入这个路由是需要登录的
+      }
     },
     {
       path: "/Login",
@@ -47,12 +47,14 @@ const router = new Router({
   ]
 });
 
+var storeTemp=store;
 router.beforeEach((to, from, next) => {
+  if (!storeTemp.state.token) {
+    storeTemp.commit("saveToken",window.localStorage.Token)
+  }
   if (to.meta.requireAuth) {
-    console.log(store.state.token);
-
     // 判断该路由是否需要登录权限
-    if (window.localStorage.Token && window.localStorage.Token.length >= 128) {
+    if (storeTemp.state.token) {
       // 通过vuex state获取当前的token是否存在
       next();
     } else {
