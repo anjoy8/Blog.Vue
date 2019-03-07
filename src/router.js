@@ -5,6 +5,9 @@ import Home from "./views/Home.vue";
 import FormVuex from "./views/FormVuex.vue";
 import Content from "./views/content";
 import Login from "./views/Login";
+import LoginCallbackView from "./views/LoginCallbackView";
+
+import applicationUserManager from "./Auth/applicationusermanager";
 
 Vue.use(Router);
 
@@ -36,6 +39,11 @@ const router = new Router({
       component: Login
     },
     {
+      path: "/callback",
+      name: "LoginCallbackView",
+      component: LoginCallbackView
+    },
+    {
       path: "/about",
       name: "about",
       // route level code-splitting
@@ -47,10 +55,10 @@ const router = new Router({
   ]
 });
 
-var storeTemp=store;
+var storeTemp = store;
 router.beforeEach((to, from, next) => {
   if (!storeTemp.state.token) {
-    storeTemp.commit("saveToken",window.localStorage.Token)
+    storeTemp.commit("saveToken", window.localStorage.Token);
   }
   if (to.meta.requireAuth) {
     // 判断该路由是否需要登录权限
@@ -58,6 +66,8 @@ router.beforeEach((to, from, next) => {
       // 通过vuex state获取当前的token是否存在
       next();
     } else {
+        // applicationUserManager.login();
+
       next({
         path: "/login",
         query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
