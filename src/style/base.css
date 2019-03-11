@@ -11,6 +11,9 @@ a:hover { color: #000; text-decoration: none; }
 .fl { float: left!important; }
 .fr { float: right!important; }
 .box, article { margin: auto; overflow: hidden }
+.box,.newhome {
+    width: 1200px;
+}
 .navbox { width: 1200px; margin: auto; }
 .mt20 { margin-top: 20px; }
 .blue { color: #00C1DE }

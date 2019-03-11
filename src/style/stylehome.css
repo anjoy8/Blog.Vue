@@ -1709,8 +1709,9 @@ ul.h-list > li {
 
 #page-nav {
     position: relative;
-    width: 100%;
-    padding: 20px 0
+    float: right;
+    padding: 20px 0;
+    background: #fff;
 }
 
 #page-nav .page-number, #page-nav .space {

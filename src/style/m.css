@@ -35,7 +35,7 @@ nav { width: 100%; height: auto; background: rgba(0,0,0,0.5); margin-top: 18px; 
 .menu span { display: block; width: 50px; height: 50px; background: #12b7de; opacity: 0.5; position: absolute; top: 0; right: 0; border-left: #49ccea 1px solid; }
 .menu:before { right: 20px; }
 /**/
-.box, article { width: 96% }
+.box, article { width: 96% !important;}
 article { padding-top: 80px; }
 .lbox { width: 100% }
 .rbox { display: none }

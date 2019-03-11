@@ -15,7 +15,7 @@
                   {{ i.btitle }}
                 </router-link>
               </h3>
-              <span class="blogpic imgscale"><i><a href="/" ></a></i><a href="/" title=""></a></span>
+              <span class=""><i><a href="/" ></a></i><a href="/" title=""></a></span>
               <p class="blogtext" v-text="i.bcontent"></p>
               <p class="bloginfo"><i class="avatar"></i><span>{{i.bsubmitter}}</span><span >{{formatCreateTime(i)}}</span><span>【<a href="/">Just</a>】</span></p>
               <a href="/" class="viewmore">更多</a> </li>
@@ -63,7 +63,7 @@
       </div>
     </article>
     <footer>
-      <div class="box" style="width: 1200px;">
+      <div class="box">
 
         <div class="endnav">
           <p><b>免职声明：</b></p>
@@ -126,7 +126,5 @@ export default {
 </script>
 
 <style>
-article.newhome {
-  width: 1200px;
-}
+
 </style>
