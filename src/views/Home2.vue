@@ -109,7 +109,7 @@ export default {
     }
   },
   watch: {
-    $route(to, from) {
+    $route(to) {
       this.list = [];
       this.isShow = true;
       this.page = to.query.page;
@@ -120,7 +120,7 @@ export default {
 </script>
 
 <style>
-  article.newhome{
-    width: 1200px;
-  }
+article.newhome {
+  width: 1200px;
+}
 </style>

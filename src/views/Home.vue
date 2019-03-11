@@ -78,7 +78,7 @@
 
 <script>
 // @ is an alias to /src
-import util from '../../util/date'
+import util from "../../util/date";
 
 export default {
   name: "home",
@@ -95,9 +95,11 @@ export default {
     this.getData();
   },
   methods: {
-      formatCreateTime: function (row) {
-          return (!row.bCreateTime || row.bCreateTime == '') ? '' : util.formatDate.format(new Date(row.bCreateTime), 'yyyy-MM-dd');
-      },
+    formatCreateTime: function(row) {
+      return !row.bCreateTime || row.bCreateTime == ""
+        ? ""
+        : util.formatDate.format(new Date(row.bCreateTime), "yyyy-MM-dd");
+    },
     getData() {
       var that = this;
       var urlPage = that.$route.query.page;
@@ -113,7 +115,7 @@ export default {
     }
   },
   watch: {
-    $route(to, from) {
+    $route(to) {
       this.list = [];
       this.isShow = true;
       this.page = to.query.page;
@@ -124,7 +126,7 @@ export default {
 </script>
 
 <style>
-  article.newhome{
-    width: 1200px;
-  }
+article.newhome {
+  width: 1200px;
+}
 </style>
