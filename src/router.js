@@ -43,15 +43,18 @@ const router = new Router({
       name: "LoginCallbackView",
       component: LoginCallbackView
     },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Form.vue")
-    }
+      {
+          path: "/about",
+          name: "about",
+          component: () =>
+              import(/* webpackChunkName: "about" */ "./views/Form.vue")
+      },
+      {
+          path: "/home2",
+          name: "home2",
+          component: () =>
+              import(/* webpackChunkName: "about" */ "./views/Home2.vue")
+      }
   ]
 });
 

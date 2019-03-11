@@ -569,7 +569,7 @@ ul.h-list > li {
 .container {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto
 }
 
@@ -1178,7 +1178,8 @@ ul.h-list > li {
 
 .m_widget .content {
     border-top: 1px solid rgba(65, 65, 65, 0.1);
-    padding: 10px 0
+    padding: 10px 0;
+    text-align: left;
 }
 
 .m_widget ul.entry > li > a {
