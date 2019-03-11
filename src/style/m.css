@@ -38,7 +38,9 @@ nav { width: 100%; height: auto; background: rgba(0,0,0,0.5); margin-top: 18px; 
 .box, article { width: 96% !important;}
 article { padding-top: 80px; }
 .lbox { width: 100% }
-.rbox { display: none }
+.rbox {
+ float: left;
+ width: 100%; }
 .qq_join li section { margin: 0 10px }
 .jianzhan li section { margin: 0 5px; }
 .jianzhan li:nth-child(1) { width: 30% }
