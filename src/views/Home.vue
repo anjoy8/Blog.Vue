@@ -106,7 +106,7 @@ export default {
       if (urlPage) {
         that.page = urlPage;
       }
-      this.$api.get("Blog/?page=" + that.page, null, r => {
+      this.$api.get("Blog/?page=" + that.page, {test:33}, r => {
         this.list = r.data;
         this.page = r.page;
         this.TotalCount = r.pageCount;
