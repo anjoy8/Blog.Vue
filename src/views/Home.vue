@@ -16,7 +16,7 @@
                 </router-link>
               </h3>
               <span class=""><i><a href="/" ></a></i><a href="/" title=""></a></span>
-              <p class="blogtext" v-text="i.bcontent"></p>
+              <p class="blogtext" v-text="i.bRemark"></p>
               <p class="bloginfo"><i class="avatar"></i><span>{{i.bsubmitter}}</span><span >{{formatCreateTime(i)}}</span><span>【<a href="/">Just</a>】</span></p>
               <a href="/" class="viewmore">更多</a> </li>
 

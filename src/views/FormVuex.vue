@@ -10,7 +10,7 @@
             <p>数据：{{_fatherData}}</p>
         </div>
 
-        <button @click="getData">test</button>
+        <el-button type="primary" @click="getData">测试api，请看控制台</el-button>
     </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
   methods: {
     getData() {
       axios({
-        url: "/apb/api/blog"
+        url: "/api/blog"
       }).then(res => {
         console.log(res);
       });
@@ -48,3 +48,14 @@ export default {
   }
 };
 </script>
+
+<style>
+.parent {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+button {
+  margin-bottom: 10px !important;
+}
+</style>

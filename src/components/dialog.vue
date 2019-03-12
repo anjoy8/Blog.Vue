@@ -2,16 +2,20 @@
 
 <template>
   <div class="child">
-    <label>
-      姓名：<input
-        :placeholder="form.namePla"
-        type="text"
-        v-model="form.name"
-      />
-    </label>
-    <label> 年龄：<input type="number" v-model="form.age" /> </label>
-    <label> 地址：<input type="text" v-model="form.address" /> </label>
-    <button @click="ageAdd">子Age+1</button>
+    <el-form ref="form" :model="form" label-width="80px" style="width: 90%;">
+      <el-form-item label="姓名">
+        <el-input :placeholder="form.namePla" v-model="form.name"></el-input>
+      </el-form-item>
+      <el-form-item label="年龄">
+        <el-input type="number"  v-model="form.age"></el-input>
+      </el-form-item>
+      <el-form-item label="地址">
+        <el-input v-model="form.address"></el-input>
+      </el-form-item>
+    </el-form>
+
+    <el-button type="primary" @click="ageAdd">子Age+1</el-button>
+
   </div>
 </template>
 

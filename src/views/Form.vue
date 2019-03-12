@@ -11,7 +11,9 @@
             <p>姓名：{{ form.name }}</p>
             <p>年龄：{{ form.age }}</p>
             <p>地址：{{ form.address }}</p>
-            <button @click="ageAdd">父Age-1</button>
+
+            <el-button type="primary" @click="ageAdd">父Age-1</el-button>
+
         </div>
     </div>
 </template>
@@ -36,8 +38,18 @@ export default {
   methods: {
     ageAdd: function() {
       this.form.age--;
-      console.log(this.$router)
+      console.log(this.$router);
     }
   }
 };
 </script>
+<style>
+.parent {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+button {
+  margin-bottom: 10px !important;
+}
+</style>
