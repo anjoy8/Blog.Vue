@@ -3,3 +3,4 @@
 *.js linguist-language=vue
 *.css linguist-language=vue
 *.html linguist-language=vue
+*.vim linguist-language=vue
