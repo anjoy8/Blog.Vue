@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/anjoy8/Blog.Vue/blob/master/public/logovue.png" width="350"  />
+<img src="./public/logovue.png" width="350"  />
 
 
 老张：这只是 .netCore+Vue 的前端部分，后端API部分，请看我的另一个工程 https://github.com/anjoy8/Blog.Core
@@ -9,7 +9,7 @@
 博客园：https://www.cnblogs.com/laozhang-is-phi/
 
  简书：https://www.jianshu.com/u/94102b59cc2a
- 
+
  环境：
 node.js、Npm/Cnpm、vue-cli、vue-router、vuex等
 
@@ -28,9 +28,6 @@ npm install
 npm run serve
 ```
 然后你就可以直接访问 http://localhost:6688
-
-```
-```
 
 ### 如果要部署，先执行bulid
 ```
