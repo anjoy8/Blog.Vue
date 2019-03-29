@@ -55,7 +55,6 @@ axios.interceptors.response.use(
     if (error.response) {
       switch (error.response.status) {
         case 401:
-          debugger
           // 返回 401 清除token信息并跳转到登录页面
             store.commit("saveToken", "");
             router.replace({
