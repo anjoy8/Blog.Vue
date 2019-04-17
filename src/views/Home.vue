@@ -6,7 +6,12 @@
 
         <div class="ad whitebg"> </div>
         <div class="whitebg bloglist">
-          <h2 class="htitle">最新博文</h2>
+          <h2 class="htitle">最新博文
+
+            <router-link :to="'/Editor'" class="prev" style="float:right;" rel="prev">
+               Add My Study
+            </router-link>
+          </h2>
           <ul>
             <!--单图-->
             <li  v-for="i in list" :key="i.bID" >
