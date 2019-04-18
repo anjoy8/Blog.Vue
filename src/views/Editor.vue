@@ -7,21 +7,27 @@
             -->
             <el-col :span="24" class="warp-main">
                 <el-form ref="infoForm" :model="infoForm" :rules="rules" label-width="120px">
-                    <el-form-item label="标题" prop="a_title">
-                        <el-input v-model="infoForm.a_title"></el-input>
+                    <el-form-item label="标题" prop="btitle">
+                        <el-input v-model="infoForm.btitle"></el-input>
                     </el-form-item>
 
-                    <el-form-item label="来源" prop="a_source">
-                        <el-input v-model="infoForm.a_source"></el-input>
+                    <el-form-item label="分类">
+                        <el-select v-model="infoForm.bcategory" placeholder="请选择文章分类">
+                            <el-option label="技术博文" value="技术博文"></el-option>
+                        </el-select>
+                    </el-form-item>
+
+                    <el-form-item label="作者" prop="bsubmitter">
+                        <el-input v-model="infoForm.bsubmitter"></el-input>
                     </el-form-item>
                     <!--使用编辑器
                     -->
-                    <el-form-item label="详细">
+                    <el-form-item label="详细"  prop="bcontent">
                         <div class="edit_container">
-                            <quill-editor v-model="infoForm.a_content"
+                            <quill-editor v-model="infoForm.bcontent"
                                           ref="myQuillEditor"
                                           class="editer"
-                                          :options="infoForm.editorOption" @ready="onEditorReady($event)">
+                                          :options="editorOption" @ready="onEditorReady($event)">
                             </quill-editor>
                         </div>
                     </el-form-item>
@@ -39,19 +45,26 @@
 
 <script>
     import {quillEditor} from "vue-quill-editor"; //调用编辑器
+    // require styles
+    import 'quill/dist/quill.core.css'
+    import 'quill/dist/quill.snow.css'
+    import 'quill/dist/quill.bubble.css'
+
+
     export default {
         data() {
             return {
                 infoForm: {
-                    a_title: "",
-                    a_source: "",
-                    a_content: "",
-                    editorOption: {}
+                    btitle: "",
+                    bsubmitter: "",
+                    bcategory:"技术博文",
+                    bcontent: ""
                 },
+                editorOption: {},
                 //表单验证
                 rules: {
-                    a_title: [{required: true, message: "请输入标题", trigger: "blur"}],
-                    a_content: [
+                    btitle: [{required: true, message: "请输入标题", trigger: "blur"}],
+                    bcontent: [
                         {required: true, message: "请输入详细内容", trigger: "blur"}
                     ]
                 }
@@ -73,8 +86,33 @@
                 //this.$refs.infoForm.validate，这是表单验证
                 this.$refs.infoForm.validate(valid => {
                     if (valid) {
-                 debugger
+                        console.log(this.infoForm)
+                        var postPara=this.infoForm;
+                        this.$api.post("Blog", postPara, r => {
+                            debugger
+                            if(r.success){
+                                var id=r.response
+                                this.$notify({
+                                    type: "success",
+                                    message: "添加成功，感谢技术分享!",
+                                    duration: 3000
+                                });
+                                this.$router.replace(`/content/${id}`);
 
+                            }else{
+                                var errorMsg=r.msg
+                                this.$message({
+                                    type: "error",
+                                    message: errorMsg,
+                                    showClose: true
+                                });
+
+                            }
+                            this.list = r.data;
+                            this.page = r.page;
+                            this.TotalCount = r.pageCount;
+                            this.isShow = false;
+                        });
                     }
                 });
             }
@@ -93,7 +131,7 @@
         width: 75%;
         margin: 0 auto;
     }
-    .ql-editor.ql-blank {
+    .ql-container.ql-snow,.ql-editor.ql-blank {
         min-height: 300px !important;
     }
     .el-form{
