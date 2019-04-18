@@ -840,7 +840,7 @@ ul.h-list > li {
 
 .l_main {
     width: 100%;
-    padding-right: 270px;
+    /*padding-right: 270px;*/
     float: left
 }
 
