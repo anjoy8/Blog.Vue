@@ -5,7 +5,20 @@
       <div class="lbox">
 
         <div class="ad whitebg"> </div>
-        <div class="whitebg bloglist">
+        <div v-if="isShow" v-for="i in 6" :key="i">
+          <el-row :gutter="20">
+            <el-col :span="7"><div class="grid-content bg-purple"></div></el-col>
+
+          </el-row>
+          <el-row :gutter="24">
+            <el-col :span="24"><div class="grid-content bg-purple"></div></el-col>
+          </el-row>
+
+          <p class="bloginfo"><i class="avatar"></i><span>loadding...</span><span ></span><span></span>
+          <a href="/" class="viewmore-row">更多</a>
+          </p>
+        </div>
+        <div v-else class="whitebg bloglist">
           <h2 class="htitle">最新博文
 
             <router-link :to="'/Editor'" class="prev" style="float:right;" rel="prev">
@@ -131,5 +144,36 @@ export default {
 </script>
 
 <style>
+  .el-row {
+    margin-bottom: 20px;
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+  .viewmore-row{
 
+    float: right;
+    background: #12b7de;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0px 10px;
+    height: 30px;
+  }
 </style>
