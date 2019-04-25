@@ -250,9 +250,18 @@
                 console.log("%c%s", "color:red", "author: " + this.author)
             },
             watch: {
+                author: function (newval, oldVal) {
+                    console.log("author 变化辣，")
+                },
                 nameCpt() {
                     //这里面可以执行一旦监听的值发生变化你想做的操作
 
+                },
+                task: {
+                    handler: (newValue, oldValue) => {
+                        console.log('task被修改了，newValue,oldValue');
+                    },
+                    deep: true //表示监视对象的属性变化，false则handler函数不知晓，但是此时看不到newValue,oldValue,为了观察内部变化，可以设置为true，注意监听数组的变化不需要这么做。
                 }
             },
             //我们的方法都统一写到这里
