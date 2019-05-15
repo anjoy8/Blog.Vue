@@ -5,26 +5,48 @@
             <div class="lbox">
 
                 <div class="ad whitebg"></div>
-                <div v-if="isShow">
-                    <div v-for="i in 6" :key="i">
-                        <el-row :gutter="20">
-                            <el-col :span="7">
-                                <div class="grid-content bg-purple"></div>
-                            </el-col>
+                <div v-if="isShow" >
+                    <div class="whitebg bloglist">
+                        <h2 class="htitle">最新博文
 
-                        </el-row>
-                        <el-row :gutter="24">
-                            <el-col :span="24">
-                                <div class="grid-content bg-purple"></div>
-                            </el-col>
-                        </el-row>
+                            <router-link :to="'/Editor'" class="prev" style="float:right;" rel="prev">
+                                Add My Study
+                            </router-link>
+                        </h2>
+                        <ul>
+                            <div v-for="i in 6" :key="i">
+                                <el-row :gutter="20">
+                                    <el-col :span="7">
+                                        <div class="grid-content bg-purple"></div>
+                                    </el-col>
 
-                        <p class="bloginfo"><i class="avatar"></i><span>loadding...</span><span></span><span></span>
-                            <a href="/" class="viewmore-row">更多</a>
-                        </p>
+                                </el-row>
+                                <el-row :gutter="24">
+                                    <el-col :span="24">
+                                        <div class="grid-content bg-purple"></div>
+                                    </el-col>
+                                </el-row>
+
+                                <p class="bloginfo"><i class="avatar"></i><span>技术博文</span><span>2019-01-01</span><span>【<a
+                                        href="/">Author</a>】</span>
+                                    <a href="/" class="viewmore-row">更多</a>
+                                </p>
+                            </div>
+                        </ul>
+                        <nav id="page-nav">
+                            <router-link :to="'/?page=' + (page>1?page-1:1)" class="prev" rel="prev">
+                                {{(page>1? "pre": "")}}
+                            </router-link>
+                            <router-link :to="'/?page=' + (page>=TotalCount? TotalCount: page+1)" class="next" rel="next">
+                                {{(page>=TotalCount? "": "Next")}}
+                            </router-link>
+
+                        </nav>
                     </div>
+
+
                 </div>
-                <div v-else class="whitebg bloglist">
+                <div v-else v-cloak class="whitebg bloglist">
                     <h2 class="htitle">最新博文
 
                         <router-link :to="'/Editor'" class="prev" style="float:right;" rel="prev">
@@ -36,13 +58,16 @@
                         <li v-for="i in list" :key="i.bID">
                             <h3 class="blogtitle">
                                 <router-link :to="'/content/' + i.bID">
-                                    {{ i.btitle }}
+                                   <span  v-cloak>{{ i.btitle }}</span>
                                 </router-link>
                             </h3>
                             <span class=""><i><a href="/"></a></i><a href="/" title=""></a></span>
                             <p class="blogtext" v-text="i.bRemark"></p>
-                            <p class="bloginfo"><i class="avatar"></i><span>{{i.bsubmitter}}</span><span>{{formatCreateTime(i)}}</span><span>【<a
-                                    href="/">Just</a>】</span></p>
+                            <p class="bloginfo"><i class="avatar"></i>
+                                <span  v-cloak>{{i.bcategory}}</span>
+                                <span  v-cloak>{{formatCreateTime(i)}}</span>
+                                <span  v-cloak>【<a href="/">{{i.bsubmitter}}</a>】</span>
+                            </p>
                             <a href="/" class="viewmore">更多</a></li>
 
                     </ul>
@@ -202,5 +227,19 @@ export default {
   border-radius: 3px;
   padding: 0px 10px;
   height: 30px;
+}
+.bg-purple{
+    background: #eaeaea;
+    -webkit-animation: loading 1s ease-in-out infinite;
+    animation: loading 1s ease-in-out infinite;
+}
+@keyframes loading{
+    0%{width:90%}
+    50%{width:100%}
+    to{width:90%}
+}
+[v-cloak] {
+    display:none;
+
 }
 </style>
