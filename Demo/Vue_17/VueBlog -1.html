@@ -258,8 +258,8 @@
 
                 },
                 task: {
-                    handler: (newValue, oldValue) => {
-                        console.log('task被修改了，newValue,oldValue');
+                    handler: (Value) => {
+                        console.log(`task被修改了${Value.name}`);
                     },
                     deep: true //表示监视对象的属性变化，false则handler函数不知晓，但是此时看不到newValue,oldValue,为了观察内部变化，可以设置为true，注意监听数组的变化不需要这么做。
                 }
