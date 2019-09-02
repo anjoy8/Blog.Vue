@@ -110,7 +110,7 @@
                                href="https://www.cnblogs.com/laozhang-is-phi/p/9806335.html#autoid-1-0-0">系列教程二：DDD领域驱动设计</a>
                         </li>
                         <li><a target="_blank"
-                               href="https://www.cnblogs.com/laozhang-is-phi/p/10236645.html#autoid-2-1-0">系列教程三：Nuxt.js
+                               href="https://www.cnblogs.com/laozhang-is-phi/p/10236645.html#autoid-2-1-0">系列教程三：Nuxt
                             TiBug系统</a></li>
                         <li><a target="_blank"
                                href="https://www.cnblogs.com/laozhang-is-phi/p/10438122.html#autoid-2-0-0">系列教程四：VueAdmin
