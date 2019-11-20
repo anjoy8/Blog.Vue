@@ -14,6 +14,7 @@
     "oidc-client": "^1.4.1",
     "vue": "^2.5.17",
     "vue-quill-editor": "^3.0.6",
+    "vue-quill-editor-upload": "^1.1.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
