@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "es5",
+      "es6",
+      "es7",
+      "es2015.promise",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "typeRoots": [
+      "./types",
+      "./node_modules/vue/types"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx", "src/api/http.ts", "src/Auth/applicationusermanager.js", "src/Auth/UserAuth.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
