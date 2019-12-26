@@ -8,7 +8,7 @@ import Login from "./views/Login.vue";
 import LoginCallbackView from "./views/LoginCallbackView.vue";
 import Editor from "./views/Editor.vue";
 
-// import applicationUserManager from "./Auth/applicationusermanager";
+import applicationUserManager from "./Auth/applicationusermanager";
 
 Vue.use(Router);
 

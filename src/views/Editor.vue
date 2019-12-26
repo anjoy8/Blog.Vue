@@ -119,7 +119,6 @@ export default {
           console.log(this.infoForm);
           var postPara = this.infoForm;
           this.$api.post("Blog", postPara, r => {
-            debugger;
             if (r.success) {
               var id = r.response;
               this.$notify({
