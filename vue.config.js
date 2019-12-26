@@ -49,6 +49,9 @@ module.exports = {
           // 路径重写，
           "^/apb": "" // 替换target中的请求地址
         }
+      },
+      "/images": {
+        target: "http://localhost:8081",
       }
     },
     before: app => {}
