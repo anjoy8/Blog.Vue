@@ -3,12 +3,12 @@ import { UserManager } from 'oidc-client'
 class ApplicationUserManager extends UserManager {
   constructor () {
     super({
-      authority: 'http://localhost:5002',
+      authority: 'http://ids.neters.club',
       client_id: 'blogvuejs',
-      redirect_uri: 'http://localhost:6688/callback',
+      redirect_uri: 'http://vueblog.neters.club/callback',
       response_type: 'id_token token',
       scope: 'openid profile roles blog.core.api',
-      post_logout_redirect_uri: 'http://localhost:6688'
+      post_logout_redirect_uri: 'http://vueblog.neters.club'
     })
   }
 
