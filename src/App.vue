@@ -41,7 +41,7 @@ export default {
   watch: {
     $route: async function(to, from) {
       //这里使用Id4授权认证，用Jwt，请删之；
-      // await this.refreshUserInfo();
+      await this.refreshUserInfo();
     }
   },
   methods: {
