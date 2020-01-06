@@ -1,5 +1,6 @@
 import store from "../store";
 import router from "../router";
+import applicationUserManager from "../Auth/applicationUserManager";
 
 // 配置API接口地址
 var root1 = "http://localhost:58427/api";//测试本地，用CORS跨域
@@ -56,10 +57,12 @@ axios.interceptors.response.use(
         case 401:
           // 返回 401 清除token信息并跳转到登录页面
             store.commit("saveToken", "");
-            router.replace({
-            path: "/login",
-            query: { redirect: router.currentRoute.fullPath }
-          });
+
+            applicationUserManager.login();
+          //   router.replace({
+          //   path: "/login",
+          //   query: { redirect: router.currentRoute.fullPath }
+          // });
       }
     }
     return Promise.reject(error.response.data); // 返回接口返回的错误信息
