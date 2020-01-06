@@ -1,6 +1,6 @@
 import store from "../store";
 import router from "../router";
-import applicationUserManager from "../Auth/applicationUserManager";
+import applicationUserManager from "../Auth/applicationusermanager";
 
 // 配置API接口地址
 var root1 = "http://localhost:58427/api";//测试本地，用CORS跨域
