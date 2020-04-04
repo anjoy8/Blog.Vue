@@ -94,7 +94,7 @@ export default {
   methods: {
     getData() {
       this.$api.get("Blog/" + this.id, null, r => {
-        this.dat = r.response.data;
+        this.dat = r.response;
         this.isShow = false;
       });
     }
