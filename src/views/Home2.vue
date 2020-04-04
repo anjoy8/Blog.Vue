@@ -101,9 +101,9 @@ export default {
         that.page = urlPage;
       }
       this.$api.get("Blog/?page=" + that.page, null, r => {
-        this.list = r.data;
-        this.page = r.page;
-        this.TotalCount = r.pageCount;
+        this.list = r.response.data;
+        this.page = r.response.page;
+        this.TotalCount = r.response.pageCount;
         this.isShow = false;
       });
     }
