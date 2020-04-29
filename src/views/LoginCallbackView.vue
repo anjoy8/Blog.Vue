@@ -22,8 +22,8 @@ export default {
     try {
       await applicationUserManager.signinRedirectCallback()
         let user = await applicationUserManager.getUser()
-        console.log(user)
         this.$store.commit("saveToken", user.access_token);
+        window.localStorage.setItem("USER_NAME", user.profile.name);
         this.$router.push({name: 'home'})
     } catch (e) {
       console.log(e)

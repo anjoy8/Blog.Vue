@@ -7,7 +7,7 @@
             <img src="/blogv.png" style="width: 60px;" />
           </a>
           <div class="header-container-userinfo">
-            <template v-if="!user.isAuthenticated">
+            <template v-if="!sysUserName">
               <a
                 @click="login"
                 class="header-container-userinfo-login header-container-user-btn header-container-in header-container-user-size"
@@ -27,7 +27,10 @@
               </a>
             </template>
             <template v-else>
-              <a href="https://ids.neters.club/" class="header-container-banner-item-btn">{{ user.name }}</a>
+              <a
+                href="https://ids.neters.club/"
+                class="header-container-banner-item-btn"
+              >{{ sysUserName }}</a>
               <a
                 href="/Editor"
                 class="header-container-user-btn header-container-hv header-container-user-size _1YbC5u"
@@ -40,7 +43,7 @@
             </template>
           </div>
           <div class="header-container-banner">
-            <div class="">
+            <div class>
               <div class="header-container-banner-item">
                 <a class="header-container-banner-item-btn" href="/">首页</a>
                 <a
@@ -54,9 +57,7 @@
         </div>
       </div>
     </header>
-    <div id="nav">
-      
-    </div>
+    <div id="nav"></div>
     <router-view />
   </div>
 </template>
@@ -69,7 +70,15 @@ export default {
   name: "app",
   mixins: [userAuth],
   data: function() {
-    return {};
+    return {
+      sysUserName: ""
+    };
+  },
+  updated() {
+    this.sysUserName = window.localStorage.getItem("USER_NAME") || "";
+  },
+  created() {
+    this.sysUserName = window.localStorage.getItem("USER_NAME") || "";
   },
   watch: {
     $route: async function(to, from) {
@@ -88,6 +97,7 @@ export default {
     },
     async logout() {
       try {
+        window.localStorage.removeItem("USER_NAME");
         await applicationUserManager.logout();
         this.$store.commit("saveToken", "");
       } catch (error) {
@@ -262,12 +272,14 @@ a {
   padding: 0 20px;
   cursor: pointer;
 }
-.header-container-logout{
-      color: #007bff;
-    margin-left: 10px;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    border-radius: .25rem;
-    border-color: #007bff;
+
+.header-container-logout {
+  cursor: pointer;
+  color: #007bff;
+  margin-left: 10px;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  border-color: #007bff;
 }
 </style>

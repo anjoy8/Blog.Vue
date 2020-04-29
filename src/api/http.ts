@@ -57,7 +57,7 @@ axios.interceptors.response.use(
         case 401:
           // 返回 401 清除token信息并跳转到登录页面
             store.commit("saveToken", "");
-
+            window.localStorage.removeItem("USER_NAME");
             applicationUserManager.login();
           //   router.replace({
           //   path: "/login",
