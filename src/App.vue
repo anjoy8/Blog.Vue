@@ -40,15 +40,15 @@
             </template>
           </div>
           <div class="header-container-banner">
-            <div class="_2RZATq">
-              <nav class="header-container-banner-item">
+            <div class="">
+              <div class="header-container-banner-item">
                 <a class="header-container-banner-item-btn" href="/">首页</a>
                 <a
                   class="header-container-banner-item-btn"
                   href="http://vueadmin.neters.club/"
                   target="_blank"
                 >Admin管理后台</a>
-              </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -141,7 +141,6 @@ a {
 
 .header-container-content {
   height: 56px;
-  min-width: 1200px;
   max-width: 1440px;
   margin: 0 auto;
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
