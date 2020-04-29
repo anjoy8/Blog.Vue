@@ -46,6 +46,7 @@
                 <a
                   class="header-container-banner-item-btn"
                   href="http://vueadmin.neters.club/"
+                  target="_blank"
                 >Admin管理后台</a>
               </nav>
             </div>
