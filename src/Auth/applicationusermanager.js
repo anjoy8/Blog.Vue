@@ -7,7 +7,7 @@ class ApplicationUserManager extends UserManager {
       client_id: 'blogvuejs',
       redirect_uri: 'http://vueblog.neters.club/callback',
       response_type: 'id_token token',
-      scope: 'openid profile roles blog.core.api',
+      scope: 'openid profile roles blog.core.api.BlogModule',
       post_logout_redirect_uri: 'http://vueblog.neters.club'
     })
   }
