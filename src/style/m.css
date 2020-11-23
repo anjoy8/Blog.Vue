@@ -116,4 +116,5 @@ a.viewmore { position: static; margin-top: 20px; text-align: center }
 .tab_buttons ul { width: 600px;overflow-x: scroll;}
 .tab_buttons li {margin-right: 30px;width: auto;}
 .newscurrent:after{width:100%}
+.header-container-banner{display: none !important}
 }
