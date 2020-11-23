@@ -36,7 +36,7 @@ nav { width: 100%; height: auto; background: rgba(0,0,0,0.5); margin-top: 18px; 
 .menu:before { right: 20px; }
 /**/
 .box, article { width: 96% !important;}
-article { padding-top: 80px; }
+article {  }
 .lbox { width: 100% }
 .rbox {
  float: left;
