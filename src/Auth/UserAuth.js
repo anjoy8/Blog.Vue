@@ -27,10 +27,6 @@ const userAuth = {
         return unixtimestamp;
       }
       var unixtimestamp = new Date(unixtimestamp * 1000);
-      unixtimestamp = unixtimestamp.setHours(unixtimestamp.getHours() - 8);
-
-      unixtimestamp = new Date(unixtimestamp);
-
       var year = 1900 + unixtimestamp.getYear();
       var month = "0" + (unixtimestamp.getMonth() + 1);
       var date = "0" + unixtimestamp.getDate();
