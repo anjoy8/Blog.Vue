@@ -97,6 +97,7 @@
                             <a href="https://github.com/anjoy8" target="_blank" class="iconfont icon-weixin" title="github"></a>
                         </li>
                     </ul>
+                    <p>过期时间：{{expDate}}</p>
                 </div>
                 <div class="whitebg notice">
                     <h2 class="htitle">网站公告</h2>
@@ -149,12 +150,16 @@ export default {
       TotalCount: 1,
       pictLoading: true,
       isShow: true,
-      list: []
+      list: [],
+      expDate: ""
     };
   },
-  created() {},
+  created() {
+    this.expDate = window.localStorage.getItem("USER_EXP") || "";
+  },
   mounted() {
     this.getData();
+    this.expDate = window.localStorage.getItem("USER_EXP") || "";
   },
   methods: {
     formatCreateTime: function(row) {
