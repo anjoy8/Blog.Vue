@@ -22,7 +22,7 @@ export default {
       await applicationUserManager.signinRedirectCallback();
       let user = await applicationUserManager.getUser();
       this.$store.commit("saveToken", user.access_token);
-      var exdate = formatUnixtimestamp(user.expires_at);
+      var exdate = this.formatUnixtimestamp(user.expires_at);
       window.localStorage.setItem("USER_EXP", exdate);
       window.localStorage.setItem("USER_NAME", user.profile.name);
       this.$router.push({ name: "home" });
