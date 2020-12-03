@@ -241,7 +241,7 @@ a.iconfont.icon-weixin { color: #07AF12;    background: url(../assets/github.png
 .tongji_gzh { width: 80%; margin: auto; overflow: hidden; }
 .tongji_gzh img { width: 100% }
 /*footer*/
-footer { background: #373D41; width: 100%; border-top: #00C1DE 10px solid; padding: 30px 0; color: #73777a; font-size: 14px; }
+footer { background: #373D41; width: 100%; border-top: #00C1DE 10px solid; color: #73777a; font-size: 14px; }
 .wxbox { overflow: hidden; float: left; margin-right: 20px }
 .wxbox li { float: left; margin: 0 10px; text-align: center }
 .wxbox img { height: 100px }
