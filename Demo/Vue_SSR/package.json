@@ -10,7 +10,7 @@
   "author": "laozhang",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.16.0",
+    "axios": "^0.21.1",
     "babel": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
